@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #8a2be2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #8a2be2;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>로그인</h2>
+
+        <!-- 로그인 폼 -->
+        <input type="text" id="username" class="input-field" placeholder="아이디를 입력하세요" required>
+        <input type="password" id="password" class="input-field" placeholder="비밀번호를 입력하세요" required>
+        <button class="login-button" onclick="login()">로그인</button>
+
+        <p class="error-message" id="error-message">아이디와 비밀번호를 확인해주세요.</p>
+        <p class="success-message" id="success-message">로그인 성공! 환영합니다.</p>
+    </div>
+
+    <script>
+        // 로그인 함수
+        function login() {
+            // 아이디와 비밀번호 값 가져오기
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // 유효성 검사: 빈 값이 있을 경우
+            if (username === "" || password === "") {
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('success-message').style.display = 'none';
+                return;
+            }
+
+            // 예시: 기본적인 로그인 성공 처리 (아이디와 비밀번호가 정상적으로 입력되면)
+            // 실제로는 서버와 통신을 해야 하지만, 여기서는 간단히 예시로 처리.
+            if (username === "user" && password === "password") {
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('error-message').style.display = 'none';
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('success-message').style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
